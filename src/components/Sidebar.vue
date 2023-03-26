@@ -2,8 +2,9 @@
 	
 	<aside :class="`${is_expanded ? 'is-expanded' : ''}`">
 		<div class="logo">
-			<img :src="logoURL" alt="Vue" /> 
+			<img :src="logoURL" alt="Vue" /> Scrumification
 		</div>
+		
 
 		<div class="menu-toggle-wrap">
 			<button class="menu-toggle" @click="ToggleMenu">
@@ -25,11 +26,11 @@
 				<span class="material-icons">assignment_add</span>
 				<span class="text">ADD & DELETE POINTS</span>
 			</router-link>
-			<router-link to="/contact" class="button">
+			<router-link to="/TasknPoint" class="button">
 				<span class="material-icons">note_alt</span>
 				<span class="text">SET TASKS & SET POINTS</span>
 			</router-link>
-			<router-link to="/contact" class="button">
+			<router-link to="/Create-Account" class="button">
 				<span class="material-icons">person_add</span>
 				<span class="text">CREATE ACCOUNT</span>
 			</router-link>
@@ -37,7 +38,7 @@
 				<span class="material-icons">leaderboard</span>
 				<span class="text">LEADERBOARD</span>
 			</router-link>
-			<router-link to="/contact" class="button">
+			<router-link to="/Achievements" class="button">
 				<span class="material-icons">school</span>
 				<span class="text">USER ACHIEVEMENT</span>
 			</router-link>
@@ -65,8 +66,8 @@
 
 
 <script setup>
-import { ref } from 'vue'
-import logoURL from '../assets/logo.png'
+import { ref } from 'vue';
+import logoURL from '../assets/logo.png';
 
 const is_expanded = ref(localStorage.getItem("is_expanded") === "true")
 

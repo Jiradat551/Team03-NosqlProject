@@ -2,11 +2,8 @@
   <main id="Home-page">
     <div class="container">
       <div class="row">
-        <Modal v-if="modalVisible" @close="closeModal">
-          <div class="modal-content"></div>
-        </Modal>
         <div class="col-12">
-          <Modal @close="toggleModal" :modalActive="modalActive">
+          <Modal @close="toggleModal" :modal="modal">
             <div class="modal-content"></div>
           </Modal>
           <button
@@ -27,7 +24,7 @@
             <div class="col-lg-8 offset-lg-12">
               <div class="table-responsive">
                 <DataTable
-                  :data="team"
+                  :data="Acc"
                   :columns="columns"
                   class="table table-striped table-bordered display"
                   :options="{
@@ -45,8 +42,9 @@
                   <thead>
                     <tr>
                       <th>ลำดับ</th>
-                      <th>ชื่อทีม</th>
-                      <th>คำอธิบายทีม</th>
+                      <th>ชื่อ-นามสกุล</th>
+                      <th>ชื่อผู้ใช้งาน</th>
+                      <th>บทบาท</th>
                       <th>ตัวดำเนินการ</th>
                     </tr>
                   </thead>
@@ -68,6 +66,7 @@ import DataTable from "datatables.net-vue3";
 import JsZip from "jszip";
 import pdfmake from "pdfmake";
 import { ref } from "vue";
+import CreateAccModal from "../components/CreateAccModal.vue";
 import Modal from "../components/Modal.vue";
 
 window.JsZip = JsZip;
@@ -77,30 +76,32 @@ DataTable.use(ButtonsHtml5);
 export default {
   components: {
     DataTable,
-    Modal,
+    CreateAccModal,
+
   },
   setup() {
-    const modalActive = ref(false);
+    const modal = ref(false);
 
     const toggleModal = () => {
-      modalActive.value = !modalActive.value;
+      modal.value = !modal.value;
     };
 
-    return { modalActive, toggleModal };
+    return { modal, toggleModal };
   },
   data() {
     return {
-      modalVisible: false,
-      team: null,
+      Acc: null,
       columns: [
         {
           data: null,
           render: function (data, type, row, meta) {
             return `${meta.row + 1}`;
+            
           },
         },
-        { data: "TeamName", className: "text-center" },
-        { data: "TeamDescrip", className: "text-center" },
+        { data: "fullname", className: "text-center" },
+        { data: "username", className: "text-center" },
+        { data: "role", className: "text-center" },
         {
           data: null,
           className: "text-center",
@@ -108,7 +109,7 @@ export default {
           searchable: false,
           width: "200px",
           render: function (data, type, row, meta) {
-            return `<button class="btn btn-primary" style="background-color: #245dc1; border-color: #245dc1" @click="openModal(${row.id})">
+            return `<button class="btn btn-primary" style="background-color: #245dc1; border-color: #245dc1" @click="editData(${row.id})">
               <i class="bi bi-pencil-square" style="padding-right: 6px"></i><span>แก้ไข</span>
               </button>
               <button class="btn btn-danger" style="background-color: #e98a7f; border-color: #e98a7f" @click="deleteData(${row.id})">
@@ -126,26 +127,12 @@ export default {
     async getData() {
       try {
         axios
-          .get("http://localhost:3001/team/")
-          .then((Response) => (this.team = Response.data));
+          .get("http://localhost:3001/Account/")
+          .then((Response) => (this.Acc = Response.data));
       } catch (error) {
         console.log(error);
         window.alert("ERROR");
       }
-    },
-    editData(id) {
-      // edit data logic
-    },
-
-    deleteData(id) {
-      // delete data logic
-    },
-    openModal(id) {
-      // set any necessary data based on the row ID
-      this.modalVisible = true;
-    },
-    closeModal() {
-      this.modalVisible = false;
     },
   },
 };

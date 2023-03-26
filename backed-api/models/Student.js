@@ -11,8 +11,21 @@ let studentSchema = new Schema({
     position: {
         type: String
     },
+    passwords: {
+        type: String
+    },
+    cluster: {
+        type: String
+    },
+    achiveNames: {
+        type: String
+    },
+    score: {
+        type: String
+    },
 },{
-  collection: 'students'
+  collection: 'students',
+  
 })
 
 module.exports = mongoose.model('Student',studentSchema)

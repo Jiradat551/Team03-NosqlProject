@@ -5,29 +5,46 @@
         <div v-show="modalActive" class="modal-inner">
           <i @click="close" class="far fa-times-circle"></i>
           <form class="mb-2" id="formtasklist" autocomplete="off">
-        <div class="card-body">
-          <h1>เพิ่มข้อมูล</h1>
-          <div class="form-group">
-            <label for="tl_name" class="form-label">ชื่อ - นามสกุล <span style="color:red;">*</span></label>
-            <input type="text" class="form-control" name="inputValue[]"  v-model="student.name" >
-            <font id="tlnameMsg" class="small text-danger"></font>
-          </div>
-          <div class="form-group">
-            <label for="tl_name" class="form-label">ชื่อผู้ใช้งาน <span style="color:red;">*</span></label>
-            <input type="text" class="form-control" name="inputValue[]" v-model="student.uname" >
-            <font id="tlnameMsg" class="small text-danger"></font>
-          </div>
-          <div class="form-group">
-            <label for="tl_name" class="form-label">บทบาท <span style="color:red;">*</span></label>
-            <input type="text" class="form-control" name="inputValue[]"  v-model="student.position" >
-            <font id="tlnameMsg" class="small text-danger"></font>
-          </div>
-        </div>
-        </form >
+            <div class="card-body">
+              <h1>เพิ่มข้อมูล</h1>
+              <div class="form-group">
+                <label for="tl_name" class="form-label"
+                  >ชื่อทีม <span style="color: red">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="inputValue[]"
+                  v-model="team.TeamName"
+                />
+                <font id="tlnameMsg" class="small text-danger"></font>
+              </div>
+              <div class="form-group">
+                <label for="tl_name" class="form-label"
+                  >คำอธิบายทีม <span style="color: red">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="inputValue[]"
+                  v-model="team.TeamDescrip"
+                />
+                <font id="tlnameMsg" class="small text-danger"></font>
+              </div>
+            </div>
+          </form>
           <slot />
-          <div class="mt-2" style="display:flex; justify-content: end;">
-            <button style="margin-right:10px;" @click="onSave()" type="button">ยืนยัน</button>
-            <button style="background-color:#9B9B9B"  @click="close" type="button">ยกเลิก</button>
+          <div class="mt-2" style="display: flex; justify-content: end">
+            <button style="margin-right: 10px" @click="Create()" type="button">
+              ยืนยัน
+            </button>
+            <button
+              style="background-color: #9b9b9b"
+              @click="close"
+              type="button"
+            >
+              ยกเลิก
+            </button>
           </div>
         </div>
       </transition>
@@ -36,21 +53,19 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
-
-  data(){
-            return{
-                student:{
-                    name:'',
-                    uname:'',
-                    position:''
-                },
-            }
-       },
-       props: ["modalActive"],
-      setup(props, { emit }) {
-       const close = () => {
+  data() {
+    return {
+      team: {
+        TeamName: "",
+        TeamDescrip: ""
+      },
+    };
+  },
+  props: ["modalActive"],
+  setup(props, { emit }) {
+    const close = () => {
       emit("close");
     };
 
@@ -58,19 +73,21 @@ export default {
   },
 
   methods: {
-    async  onSave(){
-              try{
-                await axios.post('http://localhost:3000/students/create',this.student).then(() => {
-              this.$emit('close'); 
-            })
-              
-              }catch (error){
-                console.log(error)
-                window.alert("ERROR")
-             }
-            }
+    async Create() {
+      try {
+        await axios
+          .post("http://localhost:3001/team/create", this.team)
+          .then(() => {
+            this.$emit("close");
+          });
+        window.location.reload();
+      } catch (error) {
+        console.log(error);
+        window.alert("ERROR");
+      }
+    },
+
   },
- 
 };
 </script>
 
@@ -117,7 +134,8 @@ export default {
     position: relative;
     max-width: 640px;
     width: 80%;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
     background-color: #fff;
     padding: 64px 16px;
 

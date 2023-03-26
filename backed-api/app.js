@@ -37,4 +37,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/students',require('./routes/students'))
+app.use('/achive',require('./routes/achive'))
+app.use('/team',require('./routes/team'))
+app.use('/Account',require('./routes/Account'))
+app.use('/TasknPoint',require('./routes/TasknPoint'))
 module.exports = app;
