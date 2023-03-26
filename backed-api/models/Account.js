@@ -8,7 +8,7 @@ let AccountSchema = new Schema({
     password: {
         type: String
     },
-    fullName: {
+    fullname: {
         type: String
     },
     role:{
@@ -16,7 +16,7 @@ let AccountSchema = new Schema({
     }
 },{
   collection: 'Account',
-  
+  versionKey: false
 })
 
 module.exports = mongoose.model('Account',AccountSchema)

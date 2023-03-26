@@ -58,8 +58,8 @@
         </div>
       </div>
     </main>
-  </template>
-  <script>
+</template>
+<script>
   import axios from "axios";
   import DataTableLib from "datatables.net-bs5";
   import ButtonsHtml5 from "datatables.net-buttons/js/buttons.html5";
@@ -68,7 +68,7 @@
   import JsZip from "jszip";
   import pdfmake from "pdfmake";
   import { ref } from "vue";
-  import Modal from "../components/Modal.vue";
+  import Modal from "../components/TaskpointModal.vue";
   
   window.JsZip = JsZip;
   DataTable.use(DataTableLib);

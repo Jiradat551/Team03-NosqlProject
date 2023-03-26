@@ -25,7 +25,7 @@ let studentSchema = new Schema({
     },
 },{
   collection: 'students',
-  
+  versionKey: false
 })
 
 module.exports = mongoose.model('Student',studentSchema)

@@ -10,7 +10,7 @@ let achiveSchema = new Schema({
     },
 },{
   collection: 'achive',
-  
+  versionKey: false
 })
 
 module.exports = mongoose.model('achive',achiveSchema)

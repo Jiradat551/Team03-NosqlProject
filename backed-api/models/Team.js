@@ -10,7 +10,7 @@ let TeamSchema = new Schema({
     },
 },{
   collection: 'team',
-  
+  versionKey: false
 })
 
 module.exports = mongoose.model('team',TeamSchema)

@@ -9,54 +9,29 @@
                 <h1>เพิ่มข้อมูล</h1>
                 <div class="form-group">
                   <label for="tl_name" class="form-label"
-                    >ชื่อ-นามสกุล <span style="color: red">*</span></label
+                    >ชื่อ<span style="color: red">*</span></label
                   >
                   <input
                     type="text"
                     class="form-control"
                     name="inputValue[]"
-                    v-model="account.fullname"
+                    v-model="achieve.achiveNames"
                   />
                   <font id="tlnameMsg" class="small text-danger"></font>
                 </div>
                 <div class="form-group">
                   <label for="tl_name" class="form-label"
-                    >ชื่อผู้ใช้งาน <span style="color: red">*</span></label
+                    >คะแนน <span style="color: red">*</span></label
                   >
                   <input
                     type="text"
                     class="form-control"
                     name="inputValue[]"
-                    v-model="account.username"
-                  />
-                  <font id="tlnameMsg" class="small text-danger"></font>
-                </div>
-                <div class="form-group">
-                  <label for="tl_name" class="form-label"
-                    >รหัสผ่าน <span style="color: red">*</span></label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="inputValue[]"
-                    v-model="account.password"
-                  />
-                  <font id="tlnameMsg" class="small text-danger"></font>
-                </div>
-                <div class="form-group">
-                  <label for="tl_name" class="form-label"
-                    >บทบาท <span style="color: red">*</span></label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="inputValue[]"
-                    v-model="account.role"
+                    v-model="achieve.score"
                   />
                   <font id="tlnameMsg" class="small text-danger"></font>
                 </div>
               </div>
-              
             </form>
             <slot />
             <div class="mt-2" style="display: flex; justify-content: end">
@@ -82,11 +57,9 @@ import axios from "axios";
 export default {
     data() {
       return {
-         account: {
-          fullname: "",
-          username: "",
-          password: "",
-          role: ""
+        achieve: {
+          achiveNames: "",
+          score: ""
         },
       };
     },
@@ -103,7 +76,7 @@ export default {
       async Create() {
         try {
           await axios
-            .post("http://localhost:3001/Account/create", this.account)
+            .post("http://localhost:3001/achive/create", this.achieve)
             .then(() => {
               this.$emit("close");
             });

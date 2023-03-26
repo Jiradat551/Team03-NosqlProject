@@ -10,7 +10,7 @@ let TasknPointSchema = new Schema({
     },
 },{
   collection: 'TasknPoint',
-  
+  versionKey: false
 })
 
 module.exports = mongoose.model('TasknPoint',TasknPointSchema)

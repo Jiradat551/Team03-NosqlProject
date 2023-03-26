@@ -2,21 +2,15 @@
   <main id="Home-page">
     <div class="container">
       <div class="row">
+        <CreateAccModal v-if="modalVisible" @close="closeModal">
+          <div class="modal-content"></div>
+         </CreateAccModal>
         <div class="col-12">
-          <Modal @close="toggleModal" :modal="modal">
+          <CreateAccModal @close="toggleModal" :modalActive="modalActive">
             <div class="modal-content"></div>
-          </Modal>
-          <button
-            class="btn btn-primary"
-            style="
-              margin-right: 10px;
-              background-color: #245dc1;
-              border-color: #245dc1;
-            "
-            @click="toggleModal"
-          >
-            <i class="bi bi-plus-square" style="padding-right: 6px"></i
-            ><span>เพิ่มข้อมูล</span>
+          </CreateAccModal>
+          <button class="btn btn-primary" style="margin-right: 10px;background-color: #245dc1;border-color: #245dc1;"  @click="toggleModal">
+            <i class="bi bi-plus-square" style="padding-right: 6px"></i><span>เพิ่มข้อมูล</span>
           </button>
         </div>
         <div>
@@ -67,7 +61,7 @@ import JsZip from "jszip";
 import pdfmake from "pdfmake";
 import { ref } from "vue";
 import CreateAccModal from "../components/CreateAccModal.vue";
-import Modal from "../components/Modal.vue";
+
 
 window.JsZip = JsZip;
 DataTable.use(DataTableLib);
@@ -80,16 +74,17 @@ export default {
 
   },
   setup() {
-    const modal = ref(false);
+    const modalActive = ref(false);
 
     const toggleModal = () => {
-      modal.value = !modal.value;
+      modalActive.value = !modalActive.value;
     };
 
-    return { modal, toggleModal };
+    return { modalActive, toggleModal };
   },
   data() {
     return {
+      modalVisible: false,
       Acc: null,
       columns: [
         {
@@ -133,6 +128,9 @@ export default {
         console.log(error);
         window.alert("ERROR");
       }
+    },
+    closeModal() {
+      this.modalVisible = false;
     },
   },
 };

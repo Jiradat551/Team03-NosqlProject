@@ -6,7 +6,8 @@
           <i @click="close" class="far fa-times-circle"></i>
           <form class="mb-2" id="formtasklist" autocomplete="off">
             <div class="card-body">
-              <h1>เพิ่มข้อมูล</h1>
+             
+              <h1> เพิ่มข้อมูล</h1>
               <div class="form-group">
                 <label for="tl_name" class="form-label"
                   >ชื่อทีม <span style="color: red">*</span></label
@@ -53,6 +54,7 @@
 </template>
 
 <script>
+
 import axios from "axios";
 export default {
   data() {
