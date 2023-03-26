@@ -1,40 +1,152 @@
 <template>
   <main id="about-page">
     <div class="cluster_view">
-      <div class="row Cluster">
+      <div class="row row-cols-1 row-cols-md-4 g-4">
         <div class="col">
-          <v-card class="mx-auto" max-width="344">
-            <v-card-text>
-              <div>Word of the Day</div>
-              <p class="text-h4 text--primary">be•nev•o•lent</p>
-              <p>adjective</p>
-              <div class="text--primary">
-                well meaning and kindly.<br />
-                "a benevolent smile"
+          <div class="card h-100">
+            <div class="card-img-top">
+              <img src="../assets/img/C0.jpg" alt="..." />
+            </div>
+            <div class="card-body">
+              <div class="card-title">Cluster 0</div>
+              <div class="card-text">
+               Member : 6 people
               </div>
-            </v-card-text>
-            <v-card-actions>
-              <v-btn variant="text" color="deep-purple-accent-4">
-                Learn More
-              </v-btn>
-            </v-card-actions>
-          </v-card>
+            </div>
+          </div>
         </div>
-        <div class="col">cluster 2</div>
-        <div class="col">cluster 3</div>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-img-top">
+              <img src="../assets/img/Cluster 1.jpg" alt="..." />
+            </div>
+            <div class="card-body">
+              <div class="card-title">Cluster 1</div>
+              <div class="card-text">
+               Member : 6 people
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <div class="img_cluster">
+              <img src="../assets/img/c2.jpg" alt="..." />
+              <img src="../assets/img/c9.jpg" alt="..." />
+            </div>
+            <div class="card-body">
+              <div class="card-title">Cluster 2 & 9</div>
+              <div class="card-text">
+               Member : 8 people
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-img-top">
+              <img src="../assets/img/c3.jpg" alt="..." />
+            </div>
+            <div class="card-body">
+              <div class="card-title">Cluster 3</div>
+              <div class="card-text">
+               Member : 8 people
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="row">
-        <div class="col">cluster 1</div>
-        <div class="col">cluster 2</div>
-        <div class="col">cluster 3</div>
-      </div>
-      <div class="row">
-        <div class="col">cluster 1</div>
-        <div class="col">cluster 2</div>
-        <div class="col">cluster 3</div>
+
+      <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col">
+          <div class="card h-100">
+            <div class="img_cluster">
+              <img src="../assets/img/c4.jpg" alt="..." />
+              <img src="../assets/img/c5.jpg" alt="..." />
+            </div>
+            <div class="card-body">
+              <div class="card-title">Cluster 4 & 5</div>
+           <div class="card-text">
+               Member : 9 people
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-img-top">
+              <img src="../assets/img/c6.jpg" alt="..." />
+            </div>
+            <div class="card-body">
+              <div class="card-title">Cluster 6</div>
+              <div class="card-text">
+               Member : 8 people
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-img-top">
+              <img src="../assets/img/c7.jpg" alt="..." />
+            </div>
+            <div class="card-body">
+              <div class="card-title">Cluster 7</div>
+              <div class="card-text">
+               Member : 7 people
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-img-top">
+              <img src="../assets/img/c8.jpg" alt="..." />
+            </div>
+            <div class="card-body">
+              <div class="card-title">Cluster 9</div>
+           <div class="card-text">
+               Member : 6 people
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </main>
 </template>
 <script></script>
-<style></style>
+<style>
+.row {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.card-img-top {
+  width: 150px;
+  height: 120px;
+  background-color: #d0d0d0;
+  text-align: center;
+}
+img {
+  max-width: 100%;
+  max-height: 100%;
+  background-image: none;
+  mix-blend-mode: multiply;
+}
+.img_cluster {
+  background-color: #d0d0d0;
+}
+.img_cluster img {
+  width: 150px;
+  height: 120px;
+  background-color: #d0d0d0;
+  display: inline-block;
+}
+.card-title {
+  text-align: center;
+  font-size: 28px;
+  -webkit-text-stroke: 2px black;
+  -webkit-text-fill-color: black;
+  color: white;
+}
+</style>
