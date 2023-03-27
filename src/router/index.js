@@ -1,10 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Achievement from '../views/Achievement.vue'
+import addPoint from '../views/AddPoint.vue'
 import AddTeam from '../views/AddTeam.vue'
 import CreateAccount from '../views/CreateAccount.vue'
-import TasknPoint from '../views/TasknPoint.vue'
-
 import Home from '../views/Home.vue'
+import TasknPoint from '../views/TasknPoint.vue'
+import timer from '../views/timer.vue'
 const router = createRouter({
 	history: createWebHistory(),
 	routes: [
@@ -32,6 +33,16 @@ const router = createRouter({
 			path: '/TasknPoint',
 			name: 'TasknPoint',
 			component: TasknPoint
+		},
+		{
+			path: '/Point',
+			name: 'Point',
+			component: addPoint
+		},
+		{
+			path: '/timer',
+			name: 'timer',
+			component: timer
 		},
 	],
 })

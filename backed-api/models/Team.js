@@ -8,6 +8,9 @@ let TeamSchema = new Schema({
     TeamDescrip: {
         type: String
     },
+    point:{
+        type: String
+    }
 },{
   collection: 'team',
   versionKey: false

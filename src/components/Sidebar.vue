@@ -22,7 +22,7 @@
 				<span class="material-icons">group</span>
 				<span class="text">Add Team</span>
 			</router-link>
-			<router-link to="/team" class="button">
+			<router-link to="/point" class="button">
 				<span class="material-icons">assignment_add</span>
 				<span class="text">ADD & DELETE POINTS</span>
 			</router-link>
@@ -42,7 +42,7 @@
 				<span class="material-icons">school</span>
 				<span class="text">USER ACHIEVEMENT</span>
 			</router-link>
-			<router-link to="/contact" class="button">
+			<router-link to="/timer" class="button">
 				<span class="material-icons">timer</span>
 				<span class="text">STOPWATCH AND TIMER</span>
 			</router-link>

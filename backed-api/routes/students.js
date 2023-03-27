@@ -55,6 +55,7 @@ router.put("/update/:id", async (req, res) => {
     }
   );
 });
+
 router.get("/:id", async (req, res) => {
   StudentModel.findById(req.params.id, (error, data) => {
     if (error) {
