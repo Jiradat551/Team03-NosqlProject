@@ -6,6 +6,8 @@ import CreateAccount from '../views/CreateAccount.vue'
 import Home from '../views/Home.vue'
 import TasknPoint from '../views/TasknPoint.vue'
 import timer from '../views/timer.vue'
+import reward from '../views/reward.vue'
+import leaderborad from '../views/leaderborad.vue'
 const router = createRouter({
 	history: createWebHistory(),
 	routes: [
@@ -43,6 +45,16 @@ const router = createRouter({
 			path: '/timer',
 			name: 'timer',
 			component: timer
+		},
+		{
+			path: '/reward',
+			name: 'reward',
+			component: reward
+		},
+		{
+			path: '/leaderborad',
+			name: 'leaderborad',
+			component: leaderborad
 		},
 	],
 })

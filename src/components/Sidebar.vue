@@ -34,7 +34,7 @@
 				<span class="material-icons">person_add</span>
 				<span class="text">CREATE ACCOUNT</span>
 			</router-link>
-			<router-link to="/contact" class="button">
+			<router-link to="/leaderborad" class="button">
 				<span class="material-icons">leaderboard</span>
 				<span class="text">LEADERBOARD</span>
 			</router-link>
@@ -46,7 +46,7 @@
 				<span class="material-icons">timer</span>
 				<span class="text">STOPWATCH AND TIMER</span>
 			</router-link>
-			<router-link to="/contact" class="button">
+			<router-link to="/reward" class="button">
 				<span class="material-icons">military_tech</span>
 				<span class="text">MAIN REWARD</span>
 			</router-link>
