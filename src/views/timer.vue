@@ -10,6 +10,9 @@
       </div>
 
       <div class="text"></div>
+
+
+        
     </div>
   </main>
 </template>

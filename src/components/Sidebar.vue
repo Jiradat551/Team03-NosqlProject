@@ -67,7 +67,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import logoURL from '../assets/logo.png';
+import logoURL from '../assets/img/OSSD.png';
 
 const is_expanded = ref(localStorage.getItem("is_expanded") === "true")
 
@@ -100,7 +100,7 @@ aside {
 		margin-bottom: 1rem;
 
 		img {
-			width: 2rem;
+			width: 5rem;
 		}
 	}
 
